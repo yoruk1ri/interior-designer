@@ -17,6 +17,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Railway / production domenlari uchun CSRF himoyasi
+CSRF_TRUSTED_ORIGINS = [
+    'https://interior-designer-production.up.railway.app',
+    'https://*.up.railway.app',
+]
+_extra_origins = os.environ.get('CSRF_TRUSTED_ORIGINS', '')
+if _extra_origins:
+    CSRF_TRUSTED_ORIGINS += [o.strip() for o in _extra_origins.split(',') if o.strip()]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
