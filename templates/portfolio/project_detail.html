@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ project.title }} | I DESIGNER{% endblock %}
+
+{% block content %}
+<section class="page-hero" style="background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{ project.main_image.url }}') center/cover;">
+    <span class="section-tag">{{ project.category.name }}</span>
+    <h1 class="page-title">{{ project.title }}</h1>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:60px;align-items:start;">
+            <div data-aos="fade-up">
+                <img src="{{ project.main_image.url }}" alt="{{ project.title }}" style="width:100%;margin-bottom:40px;">
+                <div class="about-text" style="margin:0;max-width:none;color:var(--gray);">{{ project.description|safe }}</div>
+                {% if project.images.all %}
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;">
+                    {% for img in project.images.all %}
+                    <img src="{{ img.image.url }}" alt="{{ project.title }}" style="width:100%;object-fit:cover;">
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div style="position:sticky;top:120px;border:1px solid var(--dark-4);padding:30px;background:var(--dark-2);">
+                <h4 style="font-family:var(--font-heading);color:var(--primary);margin-bottom:20px;">Loyiha ma'lumotlari</h4>
+                <p style="color:var(--gray);margin-bottom:10px;"><strong style="color:var(--white);">Kategoriya:</strong> {{ project.category.name }}</p>
+                <p style="color:var(--gray);margin-bottom:30px;"><strong style="color:var(--white);">Ko'rishlar:</strong> {{ project.views }}</p>
+                <a href="{% url 'contact' %}" class="btn btn-primary btn-full" style="margin-bottom:12px;">Shunday loyiha buyurtma qilish</a>
+                <a href="{% url 'portfolio:project_list' %}" class="btn btn-outline btn-full">← Portfolioga qaytish</a>
+            </div>
+        </div>
+
+        {% if related_projects %}
+        <div class="section-header" style="margin-top:80px;">
+            <span class="section-tag">O'xshash</span>
+            <h2 class="section-title">Boshqa loyihalar</h2>
+        </div>
+        <div class="portfolio-masonry">
+            {% for rp in related_projects %}
+            <a href="{% url 'portfolio:project_detail' rp.slug %}" class="portfolio-card" data-aos="fade-up">
+                <div class="portfolio-card-img"><img src="{{ rp.main_image.url }}" alt="{{ rp.title }}"></div>
+                <div class="portfolio-card-info">
+                    <span class="portfolio-card-cat">{{ rp.category.name }}</span>
+                    <h3>{{ rp.title }}</h3>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

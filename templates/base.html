@@ -1,0 +1,74 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}I DESIGNER | Professional Interyer Dizayn{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header {% block header_class %}header-dark{% endblock %}" id="header">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">
+                <span class="logo-text">I</span>
+                <span class="logo-sub">DESIGNER</span>
+            </a>
+            <nav class="nav" id="nav">
+                <a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Bosh sahifa</a>
+                <a href="{% url 'portfolio:project_list' %}" class="nav-link {% if request.resolver_match.app_name == 'portfolio' %}active{% endif %}">Portfolio</a>
+                <a href="{% url 'price' %}" class="nav-link {% if request.resolver_match.url_name == 'price' %}active{% endif %}">Narxlar</a>
+                <a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">Biz haqimizda</a>
+                <a href="{% url 'contact' %}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Kontaktlar</a>
+            </nav>
+            <a href="https://t.me/interior_studio" class="header-btn" target="_blank">Yozing bizga</a>
+            <button class="burger" id="burger"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="{% url 'home' %}" class="logo">
+                        <span class="logo-text">I</span>
+                        <span class="logo-sub">DESIGNER</span>
+                    </a>
+                    <p class="footer-desc">3D Max dasturida professional interyer dizayn xizmatlari</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Manzil</h4>
+                    <p>O'zbekiston, Toshkent shahri<br>Chilonzor tumani, 7-kvartal</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontaktlar</h4>
+                    <p><strong>Dizayner 1:</strong> Ism Familiya<br>Tel: +998 90 123-45-67</p>
+                    <p><strong>Dizayner 2:</strong> Ism Familiya<br>Tel: +998 90 765-43-21</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Ijtimoiy tarmoqlar</h4>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 I DESIGNER. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

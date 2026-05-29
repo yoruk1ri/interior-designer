@@ -1,0 +1,20 @@
+# Maxfiy
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+*.sqlite3
+
+# Media (foydalanuvchi yuklagan fayllar)
+media/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Django
+staticfiles/
+*.log

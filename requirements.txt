@@ -1,0 +1,8 @@
+Django==5.0.6
+Pillow==11.0.0
+django-crispy-forms==2.1
+crispy-bootstrap5==2024.2
+django-ckeditor==6.7.1
+django-js-asset==2.0
+whitenoise==6.7.0
+python-decouple==3.8

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Portfolio | I DESIGNER{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <h1 class="page-title">Portfolio</h1>
+    <p class="page-subtitle">Bizning eng yaxshi ishlarimiz</p>
+</section>
+
+<section class="portfolio-page section">
+    <div class="container">
+        <div class="portfolio-filter">
+            <a href="{% url 'portfolio:project_list' %}" class="filter-btn {% if not current_category %}active{% endif %}">Barchasi</a>
+            {% for cat in categories %}
+            <a href="?category={{ cat.slug }}" class="filter-btn {% if current_category == cat.slug %}active{% endif %}">{{ cat.name }}</a>
+            {% endfor %}
+        </div>
+
+        <div class="portfolio-masonry">
+            {% for project in projects %}
+            <a href="{% url 'portfolio:project_detail' project.slug %}" class="portfolio-card" data-aos="fade-up">
+                <div class="portfolio-card-img">
+                    <img src="{{ project.main_image.url }}" alt="{{ project.title }}">
+                </div>
+                <div class="portfolio-card-info">
+                    <span class="portfolio-card-cat">{{ project.category.name }}</span>
+                    <h3>{{ project.title }}</h3>
+                </div>
+            </a>
+            {% empty %}
+            <p class="t-label" style="grid-column:1/-1;text-align:center;padding:60px;">Hozircha loyihalar yo'q. Admin paneldan qo'shing.</p>
+            {% endfor %}
+        </div>
+
+        {% if is_paginated %}
+        <div class="text-center">
+            {% if page_obj.has_previous %}<a href="?page={{ page_obj.previous_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}" class="btn btn-outline">← Oldingi</a>{% endif %}
+            {% if page_obj.has_next %}<a href="?page={{ page_obj.next_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}" class="btn btn-outline">Keyingi →</a>{% endif %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

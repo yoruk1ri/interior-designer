@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Biz haqimizda | I DESIGNER{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <h1 class="page-title">Biz haqimizda</h1>
+    <p class="page-subtitle">Professional interyer dizayn studiyasi</p>
+</section>
+
+<section class="about-intro section">
+    <div class="container">
+        <div class="about-content" data-aos="fade-up">
+            <span class="section-tag">Kompaniya haqida</span>
+            <h2 class="section-title">Biz kimlar?</h2>
+            <p class="about-text">Biz — 3D Max dasturida ishlaydigan professional interyer dizaynerlar jamoasimiz. Har bir loyihaga individual yondashish, mas'uliyat va aniqlik — bizning asosiy tamoyillarimiz. Biz sizning qulayligingiz uchun loyihalash bosqichidan to amalga oshirishgacha barcha bosqichlarda hamkorlik qilamiz!</p>
+        </div>
+    </div>
+</section>
+
+<section class="team section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Jamoa</span>
+            <h2 class="section-title">Bizning dizaynerlar</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card" data-aos="fade-up">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Dizayner 1">
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Ism Familiya</h3>
+                    <span class="team-role">Asoschi va Bosh dizayner</span>
+                    <p class="team-desc">3D Max, V-Ray, Corona Renderer. 5+ yillik tajriba. 80+ bajarilgan loyiha.</p>
+                </div>
+            </div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop" alt="Dizayner 2">
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Ism Familiya</h3>
+                    <span class="team-role">Dizayner-vizualizator</span>
+                    <p class="team-desc">3D Max, V-Ray, AutoCAD. 4+ yillik tajriba. 70+ bajarilgan loyiha.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="skills section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Ko'nikmalar</span>
+            <h2 class="section-title">Biz ishlatadigan dasturlar</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-item" data-aos="fade-up"><div class="skill-icon"><img src="https://img.icons8.com/color/96/3ds-max.png" alt="3D Max"></div><h4>3Ds Max</h4></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="50"><div class="skill-icon"><img src="https://img.icons8.com/color/96/autodesk-autocad.png" alt="AutoCAD"></div><h4>AutoCAD</h4></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="100"><div class="skill-icon"><img src="https://img.icons8.com/fluency/96/corona-renderer.png" alt="Corona"></div><h4>Corona Renderer</h4></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="150"><div class="skill-icon"><img src="https://img.icons8.com/color/96/adobe-photoshop--v1.png" alt="Photoshop"></div><h4>Photoshop</h4></div>
+        </div>
+    </div>
+</section>
+
+<section class="process section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Jarayon</span>
+            <h2 class="section-title">Ish jarayoni</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-item" data-aos="fade-up"><div class="process-num">01</div><h4>Konsultatsiya</h4><p>Mijoz bilan uchrashish, xohish va talablarni aniqlash</p></div>
+            <div class="process-item" data-aos="fade-up" data-aos-delay="100"><div class="process-num">02</div><h4>O'lchov</h4><p>Ob'ektga borish, o'lchovlar olish va suratga olish</p></div>
+            <div class="process-item" data-aos="fade-up" data-aos-delay="200"><div class="process-num">03</div><h4>Dizayn</h4><p>3D Max da loyihani yaratish va vizualizatsiya</p></div>
+            <div class="process-item" data-aos="fade-up" data-aos-delay="300"><div class="process-num">04</div><h4>Amalga oshirish</h4><p>Loyihani hayotga tatbiq etish va nazorat qilish</p></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
