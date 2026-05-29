@@ -149,6 +149,6 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-# Telegram bot sozlamalari (environment variable orqali - .env faylda saqlanadi)
+# Telegram bot sozlamalari (token maxfiy - env orqali; chat ID maxfiy emas)
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
-TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '6605741627,7185803363')
